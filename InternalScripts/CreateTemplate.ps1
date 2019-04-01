@@ -1,7 +1,11 @@
-$downloadedDashboardFilePath = "C:\Users\chrishd\Downloads\partnertelemetry Dashboard (4).json"
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory=$true)]
+    [string] $DownloadedFile
+)
 
-$template = Get-Content -Path $downloadedDashboardFilePath -Raw
-$template = $template -replace "efe5716a-8901-4c86-9f76-2b5837e584e0","<SUBSCRIPTIONID>"
+$template = Get-Content -Path $DownloadedFile -Raw
+$template = $template -replace "b3a82977-e5a1-465a-92ca-fe89416c56cb","<SUBSCRIPTIONID>"
 $template = $template -replace "PartnerTelemetryResourceGroup","<RESOURCEGROUPNAME>"
 $template = $template -replace "partnertelemetry","<APPINSIGHTSNAME>"
 $template | Out-File -FilePath "C:\repos\BusinessCentralAppInsightsTemplates\Dashboards\SimpleDashboard.json" -Encoding utf8
