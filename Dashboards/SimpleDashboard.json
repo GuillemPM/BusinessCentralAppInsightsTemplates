@@ -148,9 +148,17 @@
                 {
                   "name": "Version",
                   "value": "1.0"
+                },
+                {
+                  "name": "componentId",
+                  "isOptional": true
+                },
+                {
+                  "name": "id",
+                  "isOptional": true
                 }
               ],
-              "type": "Extension/AppInsightsExtension/PartType/AvailabilityNavButtonPart",
+              "type": "Extension/AppInsightsExtension/PartType/WebTestsPinnedPart",
               "asset": {
                 "idInputName": "ComponentId",
                 "type": "ApplicationInsights"
@@ -590,7 +598,68 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "sessions/count",
+                          "aggregationType": 5,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Sessions",
+                            "color": "#47BDF5"
+                          }
+                        },
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "users/count",
+                          "aggregationType": 5,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Users",
+                            "color": "#7E58FF"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "axisVisualization": {
+                          "y": {
+                            "isVisible": true
+                          }
+                        }
+                      },
+                      "title": "Unique sessions and users",
+                      "filterCollection": {
+                        "filters": []
+                      },
+                      "openBladeOnClick": {
+                        "openBlade": true,
+                        "destinationBlade": {
+                          "parameters": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                            "menuid": "segmentationUsers"
+                          },
+                          "bladeName": "ResourceMenuBlade",
+                          "extensionName": "HubsExtension",
+                          "options": {
+                            "parameters": {
+                              "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                              "menuid": "segmentationUsers"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "15": {
@@ -704,7 +773,55 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                            "kind": "microsoft.insights/components"
+                          },
+                          "name": "requests/failed",
+                          "aggregationType": 1,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Failed requests",
+                            "color": "#EC008C"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "chartType": 3,
+                        "axisVisualization": {
+                          "y": {
+                            "isVisible": true
+                          }
+                        }
+                      },
+                      "title": "Failed requests",
+                      "openBladeOnClick": {
+                        "openBlade": true,
+                        "destinationBlade": {
+                          "parameters": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                            "menuid": "failures"
+                          },
+                          "bladeName": "ResourceMenuBlade",
+                          "extensionName": "HubsExtension",
+                          "options": {
+                            "parameters": {
+                              "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                              "menuid": "failures"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "16": {
@@ -818,7 +935,55 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                            "kind": "microsoft.insights/components"
+                          },
+                          "name": "requests/duration",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Server response time",
+                            "color": "#00BCF2"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "chartType": 2,
+                        "axisVisualization": {
+                          "y": {
+                            "isVisible": true
+                          }
+                        }
+                      },
+                      "title": "Server response time",
+                      "openBladeOnClick": {
+                        "openBlade": true,
+                        "destinationBlade": {
+                          "parameters": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                            "menuid": "performance"
+                          },
+                          "bladeName": "ResourceMenuBlade",
+                          "extensionName": "HubsExtension",
+                          "options": {
+                            "parameters": {
+                              "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                              "menuid": "performance"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "17": {
@@ -1020,7 +1185,88 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "browserTimings/networkDuration",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Page load network connect time",
+                            "color": "#7E58FF"
+                          }
+                        },
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "browserTimings/processingDuration",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Client processing time",
+                            "color": "#44F1C8"
+                          }
+                        },
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "browserTimings/sendDuration",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Send request time",
+                            "color": "#EB9371"
+                          }
+                        },
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "browserTimings/receiveDuration",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Receiving response time",
+                            "color": "#0672F1"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "chartType": 3,
+                        "legendVisualization": {
+                          "isVisible": true,
+                          "position": 2,
+                          "hideSubtitle": false
+                        },
+                        "axisVisualization": {
+                          "x": {
+                            "isVisible": true,
+                            "min": 1525718410877,
+                            "max": 1525804810877,
+                            "axisType": 2
+                          },
+                          "y": {
+                            "isVisible": true,
+                            "axisType": 1
+                          }
+                        }
+                      },
+                      "title": "Average page load time breakdown",
+                      "filterCollection": {
+                        "filters": []
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "18": {
@@ -1121,7 +1367,56 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "availabilityResults/availabilityPercentage",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Availability",
+                            "color": "#47BDF5"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "axisVisualization": {
+                          "y": {
+                            "isVisible": true
+                          }
+                        }
+                      },
+                      "title": "Average availability",
+                      "filterCollection": {
+                        "filters": []
+                      },
+                      "openBladeOnClick": {
+                        "openBlade": true,
+                        "destinationBlade": {
+                          "parameters": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                            "menuid": "availability"
+                          },
+                          "bladeName": "ResourceMenuBlade",
+                          "extensionName": "HubsExtension",
+                          "options": {
+                            "parameters": {
+                              "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>",
+                              "menuid": "availability"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "19": {
@@ -1276,7 +1571,64 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "exceptions/server",
+                          "aggregationType": 1,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Server exceptions",
+                            "color": "#47BDF5"
+                          }
+                        },
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "dependencies/failed",
+                          "aggregationType": 1,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Dependency failures",
+                            "color": "#7E58FF"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "chartType": 2,
+                        "legendVisualization": {
+                          "isVisible": true,
+                          "position": 2,
+                          "hideSubtitle": false
+                        },
+                        "axisVisualization": {
+                          "x": {
+                            "isVisible": true,
+                            "min": 1525718630151,
+                            "max": 1525805030151,
+                            "axisType": 2
+                          },
+                          "y": {
+                            "isVisible": true,
+                            "axisType": 1
+                          }
+                        }
+                      },
+                      "title": "Server exceptions and Dependency failures",
+                      "filterCollection": {
+                        "filters": []
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "20": {
@@ -1389,190 +1741,54 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "performanceCounters/processorCpuPercentage",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Processor time",
+                            "color": "#47BDF5"
+                          }
+                        },
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "performanceCounters/processCpuPercentage",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Process CPU",
+                            "color": "#7E58FF"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "axisVisualization": {
+                          "y": {
+                            "isVisible": true
+                          }
+                        }
+                      },
+                      "title": "Average processor and process CPU utilization",
+                      "filterCollection": {
+                        "filters": []
+                      }
+                    }
+                  }
+                }
+              }
             }
           },
           "21": {
-            "position": {
-              "x": 12,
-              "y": 5,
-              "colSpan": 4,
-              "rowSpan": 3
-            },
-            "metadata": {
-              "inputs": [
-                {
-                  "name": "options",
-                  "value": {
-                    "charts": [
-                      {
-                        "metrics": [
-                          {
-                            "name": "exceptions/browser",
-                            "resourceMetadata": {
-                              "resourceId": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
-                            },
-                            "aggregationType": 4
-                          }
-                        ],
-                        "title": "Browser exceptions",
-                        "timeContext": {
-                          "options": {
-                            "useDashboardTimeRange": false,
-                            "grain": 1,
-                            "appliedISOGrain": "PT10M"
-                          },
-                          "relative": {
-                            "duration": 86400000
-                          }
-                        },
-                        "itemDataModel": {
-                          "id": "B182E74B-0020-409C-98AA-CD9749A66AD9",
-                          "chartHeight": 1,
-                          "metrics": [
-                            {
-                              "id": {
-                                "resourceDefinition": {
-                                  "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
-                                },
-                                "name": {
-                                  "id": "exceptions/browser",
-                                  "displayName": "Browser exceptions"
-                                },
-                                "namespace": {
-                                  "name": "microsoft.insights/components/kusto"
-                                }
-                              },
-                              "metricAggregation": 1,
-                              "color": "#47BDF5"
-                            }
-                          ],
-                          "priorPeriod": false,
-                          "horizontalBars": true,
-                          "showOther": false,
-                          "aggregation": 1,
-                          "percentage": false,
-                          "palette": "multiColor",
-                          "jsonDefinitionId": "24FF345D-6D4C-4C59-A33A-92D7D30E2F20",
-                          "filters": {
-                            "filterType": 0,
-                            "id": "78A3AE2F-527E-4AA6-8C6F-90AF9B74BD8C",
-                            "OperandFilters": [],
-                            "LogicalOperator": 0
-                          },
-                          "yAxisOptions": {
-                            "options": 1
-                          },
-                          "title": "Browser exceptions",
-                          "titleKind": "Custom",
-                          "appliedISOGrain": "PT10M"
-                        }
-                      }
-                    ],
-                    "v2charts": true
-                  }
-                },
-                {
-                  "name": "sharedTimeRange",
-                  "binding": "timeRange",
-                  "isOptional": true
-                }
-              ],
-              "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
-            }
-          },
-          "22": {
-            "position": {
-              "x": 0,
-              "y": 8,
-              "colSpan": 4,
-              "rowSpan": 3
-            },
-            "metadata": {
-              "inputs": [
-                {
-                  "name": "options",
-                  "value": {
-                    "charts": [
-                      {
-                        "metrics": [
-                          {
-                            "name": "availabilityResults/count",
-                            "resourceMetadata": {
-                              "resourceId": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
-                            },
-                            "aggregationType": 4
-                          }
-                        ],
-                        "title": "Availability test results count",
-                        "timeContext": {
-                          "options": {
-                            "useDashboardTimeRange": false,
-                            "grain": 1,
-                            "appliedISOGrain": "PT10M"
-                          },
-                          "relative": {
-                            "duration": 86400000
-                          }
-                        },
-                        "itemDataModel": {
-                          "id": "DDFC8BE0-40EA-4258-9D13-54DAFDF13BC1",
-                          "chartHeight": 1,
-                          "metrics": [
-                            {
-                              "id": {
-                                "resourceDefinition": {
-                                  "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
-                                },
-                                "name": {
-                                  "id": "availabilityResults/count",
-                                  "displayName": "Availability test results count"
-                                },
-                                "namespace": {
-                                  "name": "microsoft.insights/components/kusto"
-                                }
-                              },
-                              "metricAggregation": 1,
-                              "color": "#47BDF5"
-                            }
-                          ],
-                          "priorPeriod": false,
-                          "horizontalBars": true,
-                          "showOther": false,
-                          "aggregation": 1,
-                          "percentage": false,
-                          "palette": "multiColor",
-                          "jsonDefinitionId": "1C7DD9E8-7EC1-45C8-89AD-96AF452BE631",
-                          "filters": {
-                            "filterType": 0,
-                            "id": "EEDB7723-1BEA-4BCE-BAF0-9F2B380B241A",
-                            "OperandFilters": [],
-                            "LogicalOperator": 0
-                          },
-                          "yAxisOptions": {
-                            "options": 1
-                          },
-                          "title": "Availability test results count",
-                          "titleKind": "Custom",
-                          "appliedISOGrain": "PT10M"
-                        }
-                      }
-                    ],
-                    "v2charts": true
-                  }
-                },
-                {
-                  "name": "sharedTimeRange",
-                  "binding": "timeRange",
-                  "isOptional": true
-                }
-              ],
-              "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
-            }
-          },
-          "23": {
             "position": {
               "x": 4,
               "y": 8,
@@ -1659,104 +1875,178 @@
                 }
               ],
               "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "settings": {
+                "content": {
+                  "options": {
+                    "chart": {
+                      "metrics": [
+                        {
+                          "resourceMetadata": {
+                            "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                          },
+                          "name": "performanceCounters/processIOBytesPerSecond",
+                          "aggregationType": 4,
+                          "namespace": "microsoft.insights/components/kusto",
+                          "metricVisualization": {
+                            "displayName": "Process IO rate",
+                            "color": "#47BDF5"
+                          }
+                        }
+                      ],
+                      "visualization": {
+                        "axisVisualization": {
+                          "y": {
+                            "isVisible": true
+                          }
+                        }
+                      },
+                      "title": "Average process I/O rate",
+                      "filterCollection": {
+                        "filters": []
+                      }
+                    }
+                  }
+                }
+              },
+              "filters": {
+                "MsPortalFx_TimeRange": {
+                  "model": {
+                    "format": "local",
+                    "granularity": "auto",
+                    "relative": "1440m"
+                  }
+                }
+              }
             }
           },
-          "24": {
+          "22": {
             "position": {
-              "x": 8,
+              "x": 15,
               "y": 8,
-              "colSpan": 4,
+              "colSpan": 3,
               "rowSpan": 3
             },
             "metadata": {
               "inputs": [
                 {
-                  "name": "options",
+                  "name": "ComponentId",
                   "value": {
-                    "charts": [
-                      {
-                        "metrics": [
-                          {
-                            "name": "performanceCounters/memoryAvailableBytes",
-                            "resourceMetadata": {
-                              "resourceId": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
-                            },
-                            "aggregationType": 1
-                          }
-                        ],
-                        "title": "Average available memory",
-                        "timeContext": {
-                          "options": {
-                            "useDashboardTimeRange": false,
-                            "grain": 1,
-                            "appliedISOGrain": "PT10M"
-                          },
-                          "relative": {
-                            "duration": 86400000
-                          }
-                        },
-                        "itemDataModel": {
-                          "id": "0A30746D-3E3A-4303-B18A-85AA1221A6C6",
-                          "chartHeight": 1,
-                          "metrics": [
-                            {
-                              "id": {
-                                "resourceDefinition": {
-                                  "id": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
-                                },
-                                "name": {
-                                  "id": "performanceCounters/memoryAvailableBytes",
-                                  "displayName": "Available memory"
-                                },
-                                "namespace": {
-                                  "name": "microsoft.insights/components/kusto"
-                                }
-                              },
-                              "metricAggregation": 4,
-                              "color": "#47BDF5"
-                            }
-                          ],
-                          "priorPeriod": false,
-                          "horizontalBars": true,
-                          "showOther": false,
-                          "aggregation": 1,
-                          "percentage": false,
-                          "palette": "multiColor",
-                          "jsonDefinitionId": "3665459C-EB96-46AA-A6AB-25E0746AD158",
-                          "filters": {
-                            "filterType": 0,
-                            "id": "BB46DEA1-1DDE-4CC9-9B99-045CD9468E39",
-                            "OperandFilters": [],
-                            "LogicalOperator": 0
-                          },
-                          "yAxisOptions": {
-                            "options": 1
-                          },
-                          "title": "Average available memory",
-                          "titleKind": "Custom",
-                          "appliedISOGrain": "PT10M"
-                        }
-                      }
-                    ],
-                    "v2charts": true
+                    "SubscriptionId": "<SUBSCRIPTIONID>",
+                    "ResourceGroup": "<RESOURCEGROUPNAME>",
+                    "Name": "<APPINSIGHTSNAME>",
+                    "ResourceId": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
                   }
                 },
                 {
-                  "name": "sharedTimeRange",
-                  "binding": "timeRange",
+                  "name": "Query",
+                  "value": "traces\n| where message == \"Page opened\"\n| summarize NumberOfTimesOpened=count() by PageId=tostring(customDimensions.PageId)\n"
+                },
+                {
+                  "name": "TimeRange",
+                  "value": "P1D"
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "DashboardId",
+                  "value": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/Microsoft.Portal/dashboards/a9433a62-461a-4fe2-ae8a-caf3a1559667-dashboard"
+                },
+                {
+                  "name": "PartId",
+                  "value": "5c3afe67-6121-49bd-9e9d-73626ea311de"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": "<APPINSIGHTSNAME>"
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsGrid"
+                },
+                {
+                  "name": "Dimensions",
+                  "isOptional": true
+                },
+                {
+                  "name": "SpecificChart",
                   "isOptional": true
                 }
               ],
-              "type": "Extension/HubsExtension/PartType/MonitorChartPart",
-              "settings": {}
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Page statistics",
+                  "PartSubTitle": "Most opened pages"
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
             }
           }
         }
       }
     },
     "metadata": {
-      "model": {}
+      "model": {
+        "timeRange": {
+          "value": {
+            "relative": {
+              "duration": 24,
+              "timeUnit": 1
+            }
+          },
+          "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+        },
+        "filterLocale": {
+          "value": "en-us"
+        },
+        "filters": {
+          "value": {
+            "MsPortalFx_TimeRange": {
+              "model": {
+                "format": "utc",
+                "granularity": "auto",
+                "relative": "1h"
+              },
+              "displayCache": {
+                "name": "UTC Time",
+                "value": "Past hour"
+              },
+              "filteredPartIds": [
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa18",
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa1a",
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa1c",
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa1e",
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa20",
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa22",
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa24",
+                "StartboardPart-MonitorChartPart-d5a1eca0-73a4-4502-bed6-f0ef2b9bfa2a",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc020",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc022",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc024",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc026",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc028",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc02a",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc02c",
+                "StartboardPart-MonitorChartPart-c046ecf0-44fa-4d82-bbaf-47be45fcc02e",
+                "StartboardPart-AnalyticsPart-c046ecf0-44fa-4d82-bbaf-47be45fcc030"
+              ]
+            }
+          }
+        }
+      }
     }
   },
   "id": "arm/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/Microsoft.Portal/dashboards/a9433a62-461a-4fe2-ae8a-caf3a1559667-dashboard",
