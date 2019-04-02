@@ -921,11 +921,11 @@
       }
     }
   },
-  "name": "Business Central customer telemetry (4)",
+  "name": "Basic VAR Dashboard",
   "type": "Microsoft.Portal/dashboards",
   "location": "INSERT LOCATION",
   "tags": {
-    "hidden-title": "Business Central customer telemetry (4)"
+    "hidden-title": "Basic VAR Dashboard"
   },
   "apiVersion": "2015-08-01-preview"
 }
