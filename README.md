@@ -6,7 +6,7 @@ This telemetry can be useful for partners, e.g., when troubleshooting an issue o
 
 As a developer of an app (typically referred to as an **ISV**), which gets installed in a Business Central environment, or as the partner on record for a customer (typically referred to as a **VAR**), you can obtain some of this telemetry.
 
-This repository contains instructions for how you can obtain the telemetry.
+This repo contains instructions for how you can obtain the telemetry.
 It also contains resources that help you get immediate value from the telemetry.
 
 
@@ -19,9 +19,9 @@ Once you have created the AppInsights account, make a note of the *instrumentati
 
 The next step depends on whether you are an ISV or a VAR.
 
-If you are an ISV, you must specify the instrumentation key in your app.json file. Once you install your app in a Business Central environment, telemetry relating to yoru app will start to flow into your AppInsights account.
+If you are an **ISV**, you must specify the instrumentation key in your app.json file. Once you install your app in a Business Central environment, telemetry relating to yoru app will start to flow into your AppInsights account.
 
-If you are a VAR, you must enter the instrumentation key in the Business Central Admin Center of your customer(s). Once you have done that, telemetry relating to your customers will start to flow into your AppInsights account.
+If you are a **VAR**, you must enter the instrumentation key in the Business Central Admin Center of your customer(s). Once you have done that, telemetry relating to your customers will start to flow into your AppInsights account.
 
 
 # Query the telemetry
@@ -61,3 +61,17 @@ To reduce the time-to-value for you, we have prepared a set of dashboards that y
 
 Each dashboard is simply a JSON file that describes which *widgets* the dashboard should contain. The JSON file contains placeholders for AppInsights instance, and in order to use the dashboards, you effectively have to do a search&replace in the JSON file such that it is *your* Azure subscription that is iused.
 
+You will find multiple dashboards, targeted at either **ISVs** or **VARs**, and focusing on different aspects such as the usage and performance of your exposed OData web services.
+
+When you find a dashboard that you would like to try, you can perform the following steps:
+ 1. Run the PrepareDashboard.ps1 file (specify the dashboard you want to use, as well as your AppInsights details)
+ 2. Open the Azure portal and go to the Dashboard section
+ 3. Click "Upload" and select the file that was produced in step 1
+If you don't like the new dashboard, you can simply delete it again.
+
+
+# Clone the repo
+
+We know that the dashboards we have provided might not match your needs exactly, and if you want to customize them, we recommend that you clone this repo and make your adjustments there, before importing the dashboard in the Azure portal.
+
+As we improve our dashboards, you can merge the changes into your cloned repo and in this way stay up-to-date.
