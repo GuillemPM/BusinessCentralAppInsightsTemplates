@@ -2,15 +2,15 @@
 
 Business Central in the cloud continuously emits telemetry about events that happen in the service.
 
-This telemetry can be useful for partners while troubleshooting an issue or to determine how often a feature is used.
+This telemetry can be useful for partners, e.g., when troubleshooting an issue or to determine how often a feature is used.
 
-As a developer of an app (typically referred to as an ISV) that is installed in a Business Central environment, or as the partner on record for a customer (typically referred to as a VAR), you can obtain this telemetry.
+As a developer of an app (typically referred to as an **ISV**), which gets installed in a Business Central environment, or as the partner on record for a customer (typically referred to as a **VAR**), you can obtain some of this telemetry.
 
 This repository contains instructions for how you can obtain the telemetry.
-This repository also contains resources that help you get immediate value from the telemetry.
+It also contains resources that help you get immediate value from the telemetry.
 
 
-# How to obtain the telemetry
+# Obtain the telemetry in your AppInsights account
 
 Business Central can send telemetry to one or more **Azure Application Insights** (AppInsights) accounts.
 The first step thus is for you to create an AppInsights account.
@@ -24,7 +24,7 @@ If you are an ISV, you must specify the instrumentation key in your app.json fil
 If you are a VAR, you must enter the instrumentation key in the Business Central Admin Center of your customer(s). Once you have done that, telemetry relating to your customers will start to flow into your AppInsights account.
 
 
-# Querying the telemetry
+# Query the telemetry
 
 Once telemetry starts to flow into your AppInsights account, let's make the first simple query on it.
 
@@ -34,21 +34,30 @@ Follow these steps:
  3. Type "Page opened" and press Enter
 Now you should see the times at which pages have been opened.
 
-You can drill deeper by using the Log Analytics feature.
+You can drill deeper by using the Analytics feature.
 
 Follow these steps:
  1. Go to Overview page of the AppInsights account again
- 2. Click "Log Analytics"
+ 2. Click "Analytics"
  3. Enter a query such as *traces | where message contains "Page Opened"*
  4. Run the query
 Now you see the same events as before, but with more detail.
 You can drill into each record and see details about which customer, which environment, which page, etc.
 
-
-# Template dashboards etc. for Business Central telemetry
-
+Analytics allows you to query the data in the way you want. You might create an ad-hoc query to solve a specific problem. But you might also create a query that you want to run again and again, e.g., a query that shows which pages are opened most often. For the latter case, perhaps you want to have the results shown in a dashboard - let's see how this can be done.
 
 
-This repository contains resources that help Business Central partners to quickly get value from Business Central telemetry.
+# Create a dashboard in the Azure portal
 
-The repository contains template dashboards, which can be uploaded to the Azure portal
+Suppose you have a query that shows how many times each page is shown, such as this one:
+  traces | where message == "Page opened" | summarize NumberOfTimesOpened=count() by PageId=tostring(customDimensions.PageId)
+
+If you execute it in the Analytics section, you can also find a "Pin" button. If you click it, you can select to pin your query on a dashboard. Now, whenever you go to the dashboard, the query will re-execute, and you will see the up-to-date results.
+
+
+# Template dashboards
+
+To reduce the time-to-value for you, we have prepared a set of dashboards that you can upload to your Azure portal.
+
+Each dashboard is simply a JSON file that describes which *widgets* the dashboard should contain. The JSON file contains placeholders for AppInsights instance, and in order to use the dashboards, you effectively have to do a search&replace in the JSON file such that it is *your* Azure subscription that is iused.
+
