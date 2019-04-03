@@ -80,10 +80,28 @@ App Insights makes it easy to define such alerts.
 
 Here is an example to get you started:
  1. Open the Azure portal and locate your AppInsights account
- 2. Click Alerts in the navigation pane
+ 2. Click "Alerts" in the navigation pane on the left
  3. Set the condition to a custom log search for "dependencies | where resultCode >= 500"
  4. Create a new action group, add an action to send an email to you
 Now you will get an email whenever your app or your customers make HTTP calls that fail.
+
+
+# Create Power BI dashboards
+
+If you want to use advanced visualizations, which the built-in dashboard functionality in the Azure portal doesn't support, it is also possible to pull the data into Power BI and create visualizations there.
+
+To do so, follow these steps:
+ 1. Open the Azure portal and locate your AppInsights account
+ 2. Click "Analytics" 
+ 3. Write the query that you would like to pull into Power BI
+ 4. Click "Export" and click "Export to Power BI (M Query)" in the upper left corner
+     * **Now you have a .txt file, which contains a Power BI query that embeds your Analytics query**
+ 5. Open Power BI Desktop
+ 6. Click "Get Data" and "Blank Query"
+ 7. Click "Advanced Editor"
+ 8. Copy and paste the query from the .txt file
+ 9. Close the editor
+You will be asked to authenticate to your App Insights instance, and once you have done that, Power BI will call App Insights and ask it to execute your Analytics query.
 
 
 # Clone the repo
