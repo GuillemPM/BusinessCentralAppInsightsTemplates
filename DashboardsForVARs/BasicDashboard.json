@@ -479,6 +479,82 @@
           },
           "7": {
             "position": {
+              "x": 16,
+              "y": 5,
+              "colSpan": 5,
+              "rowSpan": 3
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "ComponentId",
+                  "value": {
+                    "SubscriptionId": "<SUBSCRIPTIONID>",
+                    "ResourceGroup": "<RESOURCEGROUPNAME>",
+                    "Name": "<APPINSIGHTSNAME>",
+                    "ResourceId": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/microsoft.insights/components/<APPINSIGHTSNAME>"
+                  }
+                },
+                {
+                  "name": "Query",
+                  "value": "traces\r\n| where message contains \"Job Queue Job completed\"\r\n| summarize JobsExecuted=count() by AadTenantId=tostring(customDimensions.AadTenantId),EnvironmentName=tostring(customDimensions.EnvironmentName)\r\n| order by JobsExecuted desc\n"
+                },
+                {
+                  "name": "TimeRange",
+                  "value": "P1D"
+                },
+                {
+                  "name": "Version",
+                  "value": "1.0"
+                },
+                {
+                  "name": "DashboardId",
+                  "value": "/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/Microsoft.Portal/dashboards/77600665-98f0-44f0-a1b6-88976a35e0f4"
+                },
+                {
+                  "name": "PartId",
+                  "value": "0979a49d-34eb-47b6-9648-00719c9ac974"
+                },
+                {
+                  "name": "PartTitle",
+                  "value": "Analytics"
+                },
+                {
+                  "name": "PartSubTitle",
+                  "value": "<APPINSIGHTSNAME>"
+                },
+                {
+                  "name": "resourceTypeMode",
+                  "value": "components"
+                },
+                {
+                  "name": "ControlType",
+                  "value": "AnalyticsGrid"
+                },
+                {
+                  "name": "Dimensions",
+                  "isOptional": true
+                },
+                {
+                  "name": "SpecificChart",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/AppInsightsExtension/PartType/AnalyticsPart",
+              "settings": {
+                "content": {
+                  "PartTitle": "Job Queue statistics",
+                  "PartSubTitle": "<APPINSIGHTSNAME>"
+                }
+              },
+              "asset": {
+                "idInputName": "ComponentId",
+                "type": "ApplicationInsights"
+              }
+            }
+          },
+          "8": {
+            "position": {
               "x": 0,
               "y": 9,
               "colSpan": 6,
@@ -498,7 +574,7 @@
               }
             }
           },
-          "8": {
+          "9": {
             "position": {
               "x": 10,
               "y": 9,
@@ -524,7 +600,7 @@
               }
             }
           },
-          "9": {
+          "10": {
             "position": {
               "x": 0,
               "y": 11,
@@ -686,7 +762,7 @@
               }
             }
           },
-          "10": {
+          "11": {
             "position": {
               "x": 4,
               "y": 11,
@@ -848,7 +924,7 @@
               }
             }
           },
-          "11": {
+          "12": {
             "position": {
               "x": 0,
               "y": 15,
@@ -869,7 +945,7 @@
               }
             }
           },
-          "12": {
+          "13": {
             "position": {
               "x": 0,
               "y": 17,
@@ -1158,7 +1234,15 @@
                 "StartboardPart-MonitorChartPart-34c6ce6f-94bc-4730-975e-679bfe3f07d0",
                 "StartboardPart-MonitorChartPart-34c6ce6f-94bc-4730-975e-679bfe3f07d2",
                 "StartboardPart-MonitorChartPart-34c6ce6f-94bc-4730-975e-679bfe3f07d6",
-                "StartboardPart-AnalyticsPart-34c6ce6f-94bc-4730-975e-679bfe3f07d8"
+                "StartboardPart-AnalyticsPart-34c6ce6f-94bc-4730-975e-679bfe3f07d8",
+                "StartboardPart-AnalyticsPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b006",
+                "StartboardPart-AnalyticsPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b00c",
+                "StartboardPart-MonitorChartPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b00e",
+                "StartboardPart-MonitorChartPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b010",
+                "StartboardPart-MonitorChartPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b016",
+                "StartboardPart-MonitorChartPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b018",
+                "StartboardPart-MonitorChartPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b01c",
+                "StartboardPart-AnalyticsPart-cccf56ab-5b4d-44b6-85d5-1247d1f0b01e"
               ]
             }
           }
@@ -1166,8 +1250,8 @@
       }
     }
   },
-  "id": "arm/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/Microsoft.Portal/dashboards/34c6ce6f-94bc-4730-975e-679bfe3f0612",
-  "name": "34c6ce6f-94bc-4730-975e-679bfe3f0612",
+  "id": "arm/subscriptions/<SUBSCRIPTIONID>/resourceGroups/<RESOURCEGROUPNAME>/providers/Microsoft.Portal/dashboards/77600665-98f0-44f0-a1b6-88976a35e0f4",
+  "name": "77600665-98f0-44f0-a1b6-88976a35e0f4",
   "type": "Microsoft.Portal/dashboards",
   "location": "westeurope",
   "tags": {
