@@ -7,7 +7,7 @@ param (
     [string] $OutputFile,
 
     [Parameter(Mandatory=$true)]
-    [Guid] $SubscriptionId,
+    [string] $SubscriptionId,
 
     [Parameter(Mandatory=$true)]
     [string] $ResourceGroupName,
